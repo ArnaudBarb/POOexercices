@@ -54,11 +54,33 @@ class User
     {
         $this->DateOfBirth = $DateOfBirth;
     }
-
     public function subscribe(Sql $connexion)
     {
         $requete = "INSERT INTO users(username, userfirstname, usermail, dateofbirth, id_role)
         VALUES('$this->userName', '$this->userFirstname', '$this->userMail', '$this->DateOfBirth', 2)";
         $connexion->insertion($requete);
+    }
+
+    // private string $serverName = "localhost";
+    // private string $userName = "root";
+    // private string $database = "poo";
+    // private string $userPassword = "";
+    // private object $connexion;
+
+    public function userLogin()
+    {
+        if (isset($_POST['envoi'])) {
+            $userMail = $_POST['usermail'] ?? '';
+            $userName = $_POST['username'] ?? '';
+
+            $conn = new PDO("mysql:host=$this->serverName;
+            dbname=$this->database", $this->userName, $this->userPassword);
+            $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $requete = $conn->prepare("SELECT * FROM users WHERE usermail='$userMail'");
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_OBJ);
+    
+        }    
     }
 }
