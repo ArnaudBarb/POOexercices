@@ -1,12 +1,12 @@
 <?php
 
-class User
+abstract class User
 {
-    private string $userName;
-    private string $userFirstname;
-    private string $userMail;
-    private string $DateOfBirth;
-    private int $userRole;
+    protected string $userName;
+    protected string $userFirstname;
+    protected string $userMail;
+    protected string $DateOfBirth;
+    protected int $userRole;
 
     //création d'un getter afin de récupérer les infos préenregistrées
     public function getNomUser(): string|bool
