@@ -11,13 +11,13 @@ class User
     //création d'un getter afin de récupérer les infos préenregistrées
     public function getNomUser(): string|bool
     {
-        // if(mb_strlen($this->userName) > 0) test impossible sans données préalables
+        // if(mb_strlen($this->userName) > 0) //test impossible sans données préalables
 
         // if (isset($this->userName))
         //     return $this->userName;
         // else
         //     return false;
-        //même chose que les ifs précédents mais en ternaire
+        //même chose que le if précédent mais en ternaire
         return isset($this->userName) ? $this->userName : false;
     }
     public function setNomUser(string $name): void
@@ -61,20 +61,20 @@ class User
         $connexion->insertion($requete);
     }
 
-    public function userLogin()
-    {
-        if (isset($_POST['envoi'])) {
-            $userMail = $_POST['usermail'] ?? '';
-            $userName = $_POST['username'] ?? '';
+    // public function userLogin()
+    // {
+    //     if (isset($_POST['envoi'])) {
+    //         $userMail = $_POST['usermail'] ?? '';
+    //         $userName = $_POST['username'] ?? '';
 
-            $conn = new PDO("mysql:host=$this->serverName;
-            dbname=$this->database", $this->userName, $this->userPassword);
-            $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //         $conn = new PDO("mysql:host=$this->serverName;
+    //         dbname=$this->database", $this->userName, $this->userPassword);
+    //         $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $requete = $conn->prepare("SELECT * FROM users WHERE usermail='$userMail'");
-            $requete->execute();
-            $resultat = $requete->fetchAll(PDO::FETCH_OBJ);
-    
-        }    
-    }
+    //         $requete = $conn->prepare("SELECT * FROM users WHERE usermail='$userMail'");
+    //         $requete->execute();
+    //         $resultat = $requete->fetchAll(PDO::FETCH_OBJ);    
+    //     }    
+    // }
+
 }
