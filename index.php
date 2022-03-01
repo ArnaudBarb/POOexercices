@@ -20,5 +20,5 @@ $michel->setDateOfBirth('1973-05-26');
 //on doit instancier l'objet avec new Sql sinon les parametres sont considérés comme vides
 $connexion = new Sql();
 
-// $michel->subscribe($connexion);
-$michel->deleteUser($connexion, $michel->getMailUser());
+$michel->subscribe($connexion);// sert à insérer un user dans la bdd
+$michel->deleteUser($connexion, $michel->getMailUser());// sert à supprimer un user de la bdd
