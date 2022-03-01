@@ -61,12 +61,6 @@ class User
         $connexion->insertion($requete);
     }
 
-    // private string $serverName = "localhost";
-    // private string $userName = "root";
-    // private string $database = "poo";
-    // private string $userPassword = "";
-    // private object $connexion;
-
     public function userLogin()
     {
         if (isset($_POST['envoi'])) {
