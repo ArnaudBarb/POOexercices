@@ -17,8 +17,7 @@ abstract class User
         //     return $this->userName;
         // else
         //     return false;
-        //même chose que le if précédent mais en ternaire
-        return isset($this->userName) ? $this->userName : false;
+        return isset($this->userName) ? $this->userName : false;//condition ternaire
     }
     public function setNomUser(string $name): void
     {
@@ -58,7 +57,7 @@ abstract class User
     {
         $requete = "INSERT INTO users(username, userfirstname, usermail, dateofbirth, id_role)
         VALUES('$this->userName', '$this->userFirstname', '$this->userMail', '$this->DateOfBirth', 2)";
-        $connexion->insertion($requete);
+        $connexion->requete($requete);
     }
 
     // public function userLogin()

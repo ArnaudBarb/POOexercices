@@ -28,7 +28,7 @@ class Sql
         //de classes. C'est pour cette raison que l'on sépare le css de l'html par exemple)
     }
 
-    public function insertion($requete)
+    public function requete($requete)
     {
         try
         {
